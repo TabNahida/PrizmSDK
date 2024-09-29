@@ -25,3 +25,5 @@ Last, run the script ``build.sh``
 chmod +x build.sh
 ./build.sh
 ```
+## XMake Support
+ I write a ``xmake.lua`` file for example project. You can use this ``xmake.lua`` as template to build your projects
