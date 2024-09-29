@@ -1,6 +1,7 @@
-
 toolchain("sh3eb-elf-gcc")
     set_kind("standalone")
+
+    local path = "C:/SoftWare/Compiler/PrizmSDK"
     
     set_toolset("cc", "sh3eb-elf-gcc")
     set_toolset("cxx", "sh3eb-elf-gcc", "sh3eb-elf-g++")
@@ -10,14 +11,14 @@ toolchain("sh3eb-elf-gcc")
     set_toolset("strip", "sh3eb-elf-strip")
     set_toolset("mkg3a", "mkg3a")
 
-    set_sdkdir("/path/to/PrizmSDK")
-    set_bindir("/path/to/PrizmSDK/bin")
+    set_sdkdir(path)
+    set_bindir(path .. "/bin")
     
     on_load(function (toolchain)
         toolchain:add("cxflags", "-fno-exceptions", "-Os", "-Wall", "-ffunction-sections", "-fdata-sections")
-        toolchain:add("includedirs", "/path/to/PrizmSDK/include")
-        toolchain:add("linkdirs", "/path/to/PrizmSDK/lib")
-        toolchain:add("ldflags", "-T/path/to/PrizmSDK/toolchain/prizm.x", "-static", "-gc-sections")
+        toolchain:add("includedirs", path .. "/include")
+        toolchain:add("linkdirs", path .. "/lib")
+        toolchain:add("ldflags", "-T" .. path .. "/toolchain/prizm.x", "-static", "-gc-sections")
     end)
 
 toolchain_end()
