@@ -1,7 +1,7 @@
 toolchain("sh3eb-elf-gcc")
     set_kind("standalone")
 
-    local path = "C:/SoftWare/Compiler/PrizmSDK"
+    local path = "/path/to/PrizmSDK"
     
     set_toolset("cc", "sh3eb-elf-gcc")
     set_toolset("cxx", "sh3eb-elf-gcc", "sh3eb-elf-g++")
