@@ -8,6 +8,7 @@ cd build
     --prefix=${cdir}/SDK \
     --program-prefix=${_target}- \
     --disable-werror \
+    --with-sysroot=${cdir}/SDK/${_target} \
     --enable-cet \
     --enable-colored-disassembly \
     --enable-default-execstack=no \
@@ -40,10 +41,6 @@ cd build
     --prefix= ${cdir}/SDK \
     --program-prefix=${_target}- \
     --target=${_target} \
-    --disable-shared \
-    --disable-nls \
-    --disable-tls \
-    --disable-threads \
     --enable-languages=c,c++ \
     --enable-multilib \
     --with-system-zlib \
@@ -59,12 +56,9 @@ cd build
     --with-gnu-ld \
     --disable-libssp \
     --disable-__cxa_atexit \
-    --enable-ltupport \
-    --libdir=${cdir}/SDK/lib \
-    --libexecdir=${cdir}/SDK/lib \
     --enable-lto
 make all-gcc all-target-libgcc
-make install-strip-gcc install-strip-target-libgcc
+make install-gcc install-target-libgcc
 cd ../..
 cd mkg3a*
 cmake . -B build -DCMAKE_INSTALL_PREFIX=${cdir}/SDK
